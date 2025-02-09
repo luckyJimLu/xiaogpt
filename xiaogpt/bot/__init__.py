@@ -10,6 +10,8 @@ from xiaogpt.bot.llama_bot import LlamaBot
 from xiaogpt.bot.moonshot_bot import MoonshotBot
 from xiaogpt.bot.qwen_bot import QwenBot
 from xiaogpt.bot.yi_bot import YiBot
+from xiaogpt.bot.deepseek import DeepSeekBot
+from xiaogpt.bot.qianfan import QianFanBot
 from xiaogpt.config import Config
 
 BOTS: dict[str, type[BaseBot]] = {
@@ -22,6 +24,8 @@ BOTS: dict[str, type[BaseBot]] = {
     "moonshot": MoonshotBot,
     "yi": YiBot,
     "llama": LlamaBot,
+    "deepseek":DeepSeekBot,
+    "qianfan":QianFanBot,
 }
 
 
@@ -43,4 +47,6 @@ __all__ = [
     "DoubaoBot",
     "YiBot",
     "LlamaBot",
+    "DeepSeekBot",
+    "QianFanBot",
 ]

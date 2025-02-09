@@ -28,6 +28,16 @@ def main():
         help="openai api key",
     )
     parser.add_argument(
+        "--deepseek_api_key",
+        dest="deepseek_api_key",
+        help="deepseek api key",
+    )
+    parser.add_argument(
+        "--qianfan_api_key",
+        dest="qianfan_api_key",
+        help="qianfan api key",
+    )
+    parser.add_argument(
         "--moonshot_api_key",
         dest="moonshot_api_key",
         help="Moonshot api key",
@@ -131,6 +141,20 @@ def main():
         help="if use openai chatgpt api",
     )
     bot_group.add_argument(
+        "--use_deepseek_api",
+        dest="bot",
+        action="store_const",
+        const="deepseek",
+        help="if use deepseek chatgpt api",
+    )
+    bot_group.add_argument(
+        "--use_qianfan_api",
+        dest="bot",
+        action="store_const",
+        const="qianfan",
+        help="if use qianfan chatgpt api",
+    )
+    bot_group.add_argument(
         "--use_moonshot_api",
         dest="bot",
         action="store_const",
@@ -205,6 +229,8 @@ def main():
             "moonshot",
             "yi",
             "llama",
+            "deepseek",
+            "qianfan",
         ],
     )
     parser.add_argument(

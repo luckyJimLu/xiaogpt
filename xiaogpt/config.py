@@ -54,6 +54,8 @@ class Config:
     account: str = os.getenv("MI_USER", "")
     password: str = os.getenv("MI_PASS", "")
     openai_key: str = os.getenv("OPENAI_API_KEY", "")
+    deepseek_api_key: str = os.getenv("DEEPSEEK_API_KEY", "")
+    qianfan_api_key: str = os.getenv("QIANFAN_API_KEY", "")
     moonshot_api_key: str = os.getenv("MOONSHOT_API_KEY", "")
     yi_api_key: str = os.getenv("YI_API_KEY", "")
     llama_api_key: str = os.getenv("GROQ_API_KEY", "")  # use groq
@@ -72,7 +74,7 @@ class Config:
     change_prompt_keyword: Iterable[str] = CHANGE_PROMPT_KEY_WORD
     prompt: str = PROMPT
     mute_xiaoai: bool = False
-    bot: str = "chatgptapi"
+    bot: str = "deepseek"
     cookie: str = ""
     api_base: str | None = None
     deployment_id: str | None = None
@@ -99,10 +101,15 @@ class Config:
                 "Using Azure OpenAI needs deployment_id, read this: "
                 "https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/chatgpt?pivots=programming-language-chat-completions"
             )
-        if self.bot in ["chatgptapi"]:
-            if not self.openai_key:
+        if self.bot in ["deepseek"]:
+            if not self.deepseek_api_key:
                 raise Exception(
-                    "Using GPT api needs openai API key, please google how to"
+                    "Using GPT api needs DeepSeek API key, please google how to"
+                )
+        if self.bot in ["qianfan"]:
+            if not self.qianfan_api_key:
+                raise Exception(
+                    "Using GPT api needs QianFan API key, please google how to"
                 )
 
     @property
@@ -154,6 +161,10 @@ class Config:
                     value = [kw for kw in value if kw]
                 elif key == "use_chatgpt_api":
                     key, value = "bot", "chatgptapi"
+                elif key == "use_deepseek_api":
+                    key, value = "bot", "deepseek"
+                elif key == "use_qianfan_api":
+                    key, value = "bot","qianfan"
                 elif key == "use_newbing":
                     key, value = "bot", "newbing"
                 elif key == "use_glm":
