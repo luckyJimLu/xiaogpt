@@ -224,10 +224,10 @@ ChatGLM [文档](http://open.bigmodel.cn/doc/api#chatglm_130b)
 <https://www.youtube.com/watch?v=K4YA8YwzOOA>
 
 ## Docker
-
+### [国内可用docker镜像](https://www.coderjia.cn/archives/dba3f94c-a021-468a-8ac6-e840f85867ea)
 ### 常规用法
 
-X86/ARM Docker Image: `yihong0618/xiaogpt`
+X86/ARM Docker Image: `luckysdocker/xiaogpt`
 
 ```shell
 docker run -e OPENAI_API_KEY=<your-openapi-key> yihong0618/xiaogpt <命令行参数>
